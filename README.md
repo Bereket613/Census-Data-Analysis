@@ -1,135 +1,96 @@
-# Census-Data-Analysis
-A comprehensive project analyzing Ethiopian census data using Python libraries such as pandas, matplotlib, and seaborn
+Forward Selection in Regression Modeling using BIC
+A regression modeling project using Forward Selection with Bayesian Information Criterion (BIC) to select the most significant predictor from a dataset with 6 variables and 31 observations.
 
 
+# 📊 Forward Selection in Regression Modeling using BIC
 
-# 📊 Census Data Analysis Project | Group 2 - Debre Berhan University
-
-![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
-![License](https://img.shields.io/badge/License-Educational-green.svg)
-![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
-
-> 🔍 A data analysis project using Ethiopian census data to uncover population trends, gender distribution, education levels, and employment insights — all with Python!
+This project demonstrates how to apply **Forward Selection**, a stepwise regression technique, to identify the most significant predictor in a dataset. The model selection is guided by the **Bayesian Information Criterion (BIC)**, which helps prevent overfitting, especially in small datasets.
 
 ---
 
-## 🚀 Project Overview
+## ✅ Objective
 
-Welcome to our **Census Data Analysis** project! This repository contains the full workflow of how we cleaned, analyzed, and visualized real-world census data using **pandas**, **matplotlib**, and **seaborn**.
+To apply forward selection on a dataset with 6 predictors and 31 observations, and identify the most impactful predictor for the target variable `y`.
 
+---
+
+## 🔍 About Forward Selection
+
+Forward Selection is a greedy algorithm that begins with an empty model and adds variables one at a time based on a criterion like AIC, BIC, or p-value. In our case, **BIC** is used due to its penalty for complexity — ideal for smaller datasets.
+
+---
+
+## 🧮 Dataset Overview
+
+- **Target Variable (y)**: A continuous variable representing the outcome.
+- **Predictors**:
+  - `x1`, `x2`, `x3`: Continuous numeric features
+  - `x4`: Binary categorical variable (0 or 1)
+  - `x5`, `x6`: Continuous numeric features
+
+31 total observations were used.
+
+---
+
+## 🧠 Tools & Language
+
+- **Language**: R
+- **Techniques**: Linear Regression, Forward Selection
+- **Model Selection**: `step()` function with `direction = "forward"` and `k = log(n)` for BIC.
+
+---
+
+## ⚙️ Steps Performed
+
+1. **Create Full and Null Models**:
+   - Full model includes all predictors.
+   - Null model includes only the intercept.
+
+2. **Run Forward Selection**:
+   - Added predictors one by one based on improvement in BIC.
+   - Stopped when no further reduction in BIC was observed.
+
+3. **Final Model**:
+   - Selected predictor: `x4`
+   - Final regression equation:
+     ```
+     y = 11.72 - 10.77 * x4
+     ```
+
+---
 👉 [![image](https://github.com/user-attachments/assets/9883fe38-31d9-49ee-b6ab-e1fd1dbeab86)
-)  
+
+## 🧾 Interpretation
+
+- **x4** had the most significant negative effect on `y`.
+- None of the other predictors improved the BIC enough to be included.
+- The model favors simplicity and generalization.
 
 ---
 
 ## 👥 Team Members
-                                                        
 
-| Name              | Role               |
-|-------------------|--------------------|
-| NATENAEL BEKELE   | Data Cleaning      |
-| REDIET ESUBALEW   | Visualization Lead |
-| YIFERU MEKONEN    | Analysis & Report  |
-| ELBETEL ABEDI     | Documentation      |
-| GENET  MINDA      | EDA Contributor    |
-| HAFIZE HUSEN      | EDA Contributor    |
-| DAWIT  ALEMU      | EDA Contributor    |
-| BEREKET GETAW     | Project Organizer  |
-
----
-
-## 🧰 Tech Stack
-
-- 🐍 Python 3.9+
-- 📊 pandas, matplotlib, seaborn
-- 📓 Jupyter Notebook
-- 🖼️ CSV file as a dataset
+| Name              | ID           |
+|-------------------|--------------|
+| NATENAEL BEKELE   | DBU1501407   |
+| HAFIZE HUSEN      | DBU1501241   |
+| REDIET ESUBALEW   | DBU1501704   |
+| BEREKET GETAW     | DBU1501044   |
+| DAWIT ALEMU       | DBU1501117   |
+| YIFERU MEKONEN    | DBU1501562   |
+| ELBETEL ABEDI     | DBU1501145   |
+| GENET MINDA       | DBU1501217   |
 
 ---
 
-## 📁 Folder Structure
+## 📌 Conclusion
 
-<details>
-  <summary>Click to expand</summary>
-
-```
-├── data/
-│   └── census_data.csv
-├── notebooks/
-│   └── analysis.ipynb
-├── images/
-│   └── visualizations/
-├── README.md
-└── requirements.txt
-```
-</details>
+Forward Selection using BIC resulted in a simple, interpretable model with strong predictive power using only one predictor. This approach avoids overfitting and highlights the strength of BIC in variable selection.
 
 ---
 
-## 💻 How to Run This Project
+## 📜 License
 
-1. **Clone the repo**
-   ```bash
-   git clone https://github.com/your-username/Census-Data-Analysis-Debre-Berhan-University.git
-   cd Census-Data-Analysis-Debre-Berhan-University
-   ```
-
-2. **Install the required packages**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Launch the Jupyter Notebook**
-   ```bash
-   jupyter notebook notebooks/analysis.ipynb
-   ```
-
----
-
-## 📷 Sample Visualizations
-
-Here are some of the insightful plots we generated:
-
-<p align="center">
-  <img src="images/visualizations/population_by_region.png" width="45%" alt="Population by Region"/>
-  <img src="images/visualizations/gender_distribution.png" width="45%" alt="Gender Distribution"/>
-</p>
-
-<p align="center">
-  <img src="images/visualizations/education_pie_chart.png" width="45%" alt="Education Pie Chart"/>
-  <img src="images/visualizations/employment_line_chart.png" width="45%" alt="Employment Trends"/>
-</p>
-
----
-
-## 📚 Key Insights
-
-- The highest population is concentrated in specific urban regions.
-- Literacy rates vary significantly by age and gender.
-- There’s a noticeable gender imbalance in some professions.
-- Educational attainment has a strong link with employment rates.
-
----
-
-## 💡 Possible Extensions
-
-- 🔁 Real-time data updates
-- 📈 Predictive modeling using machine learning
-- 🌍 Geographic mapping with geopandas
-- 🧠 Insights dashboard with Plotly/Dash
-
----
-
-## 🧾 License
-
-This project is shared for **educational and demonstration purposes only**. Feel free to fork and adapt it for learning or portfolio use.
-
----
-
-## 🤝 Connect with Us
-
-Feel free to contribute, fork, or reach out for collaboration or questions.
-
----
+This project is for academic and educational purposes.
 
 > 🎓 *Debre Berhan University — Data Science Department, 2025*
